@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scenario xmlns="urn:perfcake:scenario:5.0">
+   <properties>
+      <property name="quickstartName" value="testQS"/>
+      <property name="filteredProperty" value="${test.filtered.property:default1}"/>
+      <property name="defaultProperty" value="${test.missing.property:default-property-value}"/>
+   </properties>
+   <run type="time" value="30"/>
+   <generator class="DefaultMessageGenerator" threads="10">
+      <property name="senderTaskQueueSize" value="5000"/>
+   </generator>
+   <sender class="HttpSender">
+      <target>http://${server.host}:${server.port}/HTTPGateway/http/PerformanceTest/HTTPGateway</target>
+   </sender>
+   <reporting>
+      <property name="tags" value=""/>
+      <property name="uniqueId" value="${scenario}"/>
+      <reporter class="ATReporter">
+         <property name="labelType" value="Time"/>
+         <destination class="CsvDestination">
+            <property name="periodicity" value="10%"/>
+            <property name="outputPath" value="logs"/>
+         </destination>
+         <destination class="ConsoleDestination">
+            <property name="periodicity" value="1s"/>
+         </destination>
+      </reporter>
+   </reporting>
+   <messages>
+      <message uri="message1.xml" multiplicity="10">
+         <header name="m_header1" value="m_h_value1"/>
+         <header name="m_header2" value="m_h_value2"/>
+         <header name="m_header3" value="m_h_value3"/>
+         <property name="m_property1" value="m_p_value1"/>
+         <property name="m_property2" value="m_p_value2"/>
+         <property name="m_property3" value="m_p_value3"/>
+      </message>
+      <message uri="message2.txt"/>
+   </messages>
+</scenario>
