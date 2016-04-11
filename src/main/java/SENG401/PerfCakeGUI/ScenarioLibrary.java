@@ -109,14 +109,4 @@ public class ScenarioLibrary {
 		return count;
 	}
 	
-	
-	
-	public static void main(String[] args) {
-		System.out.println("Files found: " + ScenarioLibrary.getInstance().searchForScenarios("D:\\workspace\\PerfCakeGUI\\resources", true));
-		System.out.println(files.size());
-		for(String name : instance.getAvailableScenarios()) {
-			System.out.println(name + '\t' + instance.getPathForScenarioName(name));
-		}
-	}
-	
 }
