@@ -9,6 +9,14 @@ package SENG401.PerfCakeGUI;
  */
 public class ScenarioProperty {
 
+	public ScenarioProperty() {
+	}
+	
+	public ScenarioProperty(String name, String value) {
+		this.propertyName = name;
+		this.propertyValue = value;
+	}
+	
 	/**
 	 * The property name (for example, in
 	 * -Dserver.host=www.google.ca the name is 'server.host'
