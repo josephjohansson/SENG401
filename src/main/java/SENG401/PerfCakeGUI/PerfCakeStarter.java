@@ -89,7 +89,6 @@ public class PerfCakeStarter {
 		String[] newArgs = new String[args.size()];
 		for(int i = 0; i < newArgs.length; i++) {
 			newArgs[i] = args.get(i);
-			System.out.println("newArgs[" + i + "] = " + newArgs[i]);
 		}
 		
 		ScenarioExecution.main(newArgs);

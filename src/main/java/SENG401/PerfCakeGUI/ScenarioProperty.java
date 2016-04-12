@@ -46,4 +46,9 @@ public class ScenarioProperty {
 		this.propertyValue = propertyValue;
 	}
 	
+	@Override
+	public String toString() {
+		return propertyName + "=" + propertyValue;
+	}
+	
 }
